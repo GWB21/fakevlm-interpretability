@@ -1,0 +1,111 @@
+{
+  "fft": {
+    "original": {
+      "accuracy": 0.986389,
+      "f1": 0.981048,
+      "n_total": 5000,
+      "n_valid": 4996,
+      "n_undetermined": 4,
+      "confusion": [
+        [
+          3168,
+          20
+        ],
+        [
+          48,
+          1760
+        ]
+      ]
+    },
+    "lpf": {
+      "accuracy": 0.604521,
+      "f1": 0.182044,
+      "n_total": 5000,
+      "n_valid": 4999,
+      "n_undetermined": 1,
+      "confusion": [
+        [
+          2802,
+          390
+        ],
+        [
+          1587,
+          220
+        ]
+      ]
+    },
+    "hpf": {
+      "accuracy": 0.6742,
+      "f1": 0.198721,
+      "n_total": 5000,
+      "n_valid": 5000,
+      "n_undetermined": 0,
+      "confusion": [
+        [
+          3169,
+          23
+        ],
+        [
+          1606,
+          202
+        ]
+      ]
+    },
+    "hpf_dc": {
+      "accuracy": 0.728,
+      "f1": 0.399823,
+      "n_total": 5000,
+      "n_valid": 5000,
+      "n_undetermined": 0,
+      "confusion": [
+        [
+          3187,
+          5
+        ],
+        [
+          1355,
+          453
+        ]
+      ]
+    }
+  },
+  "hook": {
+    "original": {
+      "accuracy": 0.986395,
+      "f1": 0.981037,
+      "n_valid": 4998,
+      "confusion": [
+        [
+          3171,
+          19
+        ],
+        [
+          49,
+          1759
+        ]
+      ]
+    },
+    "masked": {
+      "accuracy": 0.947179,
+      "f1": 0.924701,
+      "n_valid": 4998,
+      "confusion": [
+        [
+          3113,
+          77
+        ],
+        [
+          187,
+          1621
+        ]
+      ]
+    },
+    "language_bias": {
+      "n_valid_both": 4998,
+      "n_bias": 4782,
+      "bias_rate": 0.956783,
+      "n_correct_bias": 4724,
+      "n_wrong_bias": 58
+    }
+  }
+}

@@ -1,0 +1,112 @@
+======================================================================
+  FakeVLM Mechanistic Interpretability Analysis Report
+======================================================================
+
+SECTION 1: FFT Frequency Knockout Experiment
+----------------------------------------------------------------------
+Hypothesis: If the model relies on frequency artifacts (high-frequency
+components), HPF should preserve or improve accuracy while LPF degrades it.
+Conversely, reliance on semantic content predicts HPF degradation.
+
+  [Original]
+    Accuracy      : 0.986389
+    F1-Score      : 0.981048
+    Valid samples : 4996 / 5000
+    Undetermined  : 4
+    Confusion Matrix (label: 0=fake, 1=real):
+      TN=3168  FP=20
+      FN=48  TP=1760
+
+  [LPF (R=30)]
+    Accuracy      : 0.604521
+    F1-Score      : 0.182044
+    Valid samples : 4999 / 5000
+    Undetermined  : 1
+    Confusion Matrix (label: 0=fake, 1=real):
+      TN=2802  FP=390
+      FN=1587  TP=220
+
+  [HPF-OOD (R=30)]
+    Accuracy      : 0.674200
+    F1-Score      : 0.198721
+    Valid samples : 5000 / 5000
+    Undetermined  : 0
+    Confusion Matrix (label: 0=fake, 1=real):
+      TN=3169  FP=23
+      FN=1606  TP=202
+
+  [HPF+DC (R=30)]
+    Accuracy      : 0.728000
+    F1-Score      : 0.399823
+    Valid samples : 5000 / 5000
+    Undetermined  : 0
+    Confusion Matrix (label: 0=fake, 1=real):
+      TN=3187  FP=5
+      FN=1355  TP=453
+
+  Performance Delta (vs. Original):
+    LPF    - Original: -0.381868
+    HPF+DC - Original: -0.258389  [fair high-freq probe]
+    HPF-OOD- Original: -0.312189  [visual deprivation control, NOT a fair freq. test]
+
+  [NOTE] HPF-OOD removes DC component, producing near-black OOD images.
+  CLIP activation collapse expected. HPF-OOD results should be interpreted
+  ONLY as 'language bias under complete visual deprivation', NOT as evidence
+  for/against high-frequency artifact dependency.
+
+  Interpretation (LPF + HPF+DC primary analysis):
+    Moderate or mixed frequency sensitivity. Both LPF and HPF+DC
+    show non-trivial changes. Further analysis with multiple radii recommended.
+
+SECTION 2: Attention Masking Experiment (Language Bias Analysis)
+----------------------------------------------------------------------
+Hypothesis: If the model exhibits language bias, masking the top-20%
+visually attended patches will not change the prediction output,
+indicating the model's response is driven by language priors rather
+than visual evidence.
+
+  [Before Masking (1st inference)]
+    Accuracy      : 0.986395
+    F1-Score      : 0.981037
+    Valid samples : 4998
+    Confusion Matrix:
+      TN=3171  FP=19
+      FN=49  TP=1759
+
+  [After Masking (2nd inference, top-20% attention patches zeroed)]
+    Accuracy      : 0.947179
+    F1-Score      : 0.924701
+    Valid samples : 4998
+    Confusion Matrix:
+      TN=3113  FP=77
+      FN=187  TP=1621
+    Accuracy Delta: -0.039216
+    F1 Delta      : -0.056336
+
+  [Language Bias Statistics]
+    Samples with both predictions parsed : 4998
+    Language Bias cases (pred unchanged)  : 4782 / 4998
+    Language Bias Rate                  : 0.956783
+    Breakdown:
+      Correct prediction + bias preserved : 4724 (94.52%)
+      Wrong prediction + bias preserved   : 58 (1.16%)
+
+  Interpretation:
+    Language Bias Rate exceeds 60%. The model maintains its prediction
+    in the majority of cases after critical visual patches are removed,
+    strongly supporting the language bias hypothesis. The LLM prior
+    dominates over visual evidence in FakeVLM's decision process.
+
+SECTION 3: Integrated Conclusion
+----------------------------------------------------------------------
+  1. Frequency Domain: Non-trivial performance changes under frequency
+     filtering indicate partial reliance on specific frequency bands.
+     Further investigation with varying radius values is recommended.
+
+  2. Language Bias: High bias rate (95.68%) confirms that the LLM
+     component of FakeVLM exerts strong influence on final predictions,
+     potentially overriding visual evidence. This represents a systemic
+     vulnerability: adversarial text prompts may manipulate detection
+     outcomes regardless of image content.
+
+======================================================================
