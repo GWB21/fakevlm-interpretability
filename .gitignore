@@ -2,6 +2,13 @@
 data/
 weights/
 
+# FakeClue 분석 결과물은 예외적으로 포함
+!data/FakeClue_visualized/
+!data/FakeClue_visualized/**
+!data/visualize_fakeclue.py
+!data/analyze_caption_quality.py
+!data/remake_stats_chart.py
+
 # Python
 __pycache__/
 *.py[cod]

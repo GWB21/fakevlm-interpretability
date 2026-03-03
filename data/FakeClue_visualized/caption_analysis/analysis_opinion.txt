@@ -1,0 +1,45 @@
+
+============================================================
+FakeClue Caption Quality Analysis — 분석 의견
+============================================================
+
+[핵심 수치 요약]
+- 총 캡션: 5,000개
+- Vague phrase 포함: 2,092개 (41.8%)
+- Active 발굴 phrase 수: 35개 (seed 22개 → 총 57개)
+- 가장 빈출 8-gram: "despite its seemingly authentic appearance certain features such" (477회, 9.5%)
+- 가장 많이 반복된 첫 문장: "this is a fake image...." (2923회)
+
+[분석 의견]
+
+1. **템플릿 복붙 수준의 반복성**
+   상위 8-gram 구절들이 전체의 10%~9% 비율로 반복됩니다.
+   "this is a fake image" 류의 첫 문장도 수백 회 동일하게 등장합니다.
+   이는 캡션이 실제 이미지를 세밀히 관찰하여 작성된 것이 아니라,
+   소수의 템플릿을 재조합한 것에 불과할 가능성을 강하게 시사합니다.
+
+2. **Vague phrase의 전방위적 사용**
+   "unnatural reflections and mismatched pupil details" 등 모호한 결론형 표현이
+   전체 캡션의 높은 비율에서 발견됩니다.
+   특히 Real(label=1) 캡션에서도 Vague phrase 비율이 높게 나타나는 카테고리가 있어,
+   Real/Fake 구분 없이 동일한 템플릿이 무차별적으로 사용되었음을 시사합니다.
+
+3. **카테고리 간 균질성 문제**
+   TTR(Type-Token Ratio)가 카테고리 전반에 걸쳐 낮은 편입니다.
+   deepfake 카테고리가 얼굴 아티팩트에 특화된 어휘를 다소 사용하는 반면,
+   satellite·doc·scene 등은 더욱 획일화된 표현에 의존합니다.
+   도메인별 fine-grained reasoning이 부재함을 의미합니다.
+
+4. **신뢰도 평가**
+   FakeClue의 GT reasoning은 "실제로 무엇이 이상한지" 설명하는 데 있어
+   구체성이 현저히 부족하며, 상당 부분이 자동화 파이프라인 또는
+   소수 템플릿의 재조합으로 생성되었을 가능성이 높습니다.
+   이는 해당 GT를 supervision signal로 사용하는 모델의 reasoning 능력 평가에
+   근본적인 편향을 초래할 수 있습니다.
+
+5. **연구적 시사점**
+   - GT 캡션의 표면적 다양성 지표(예: BLEU, ROUGE)만으로는 품질을 평가할 수 없음.
+   - FakeVLM 등 모델이 높은 성능을 보이더라도, 그것이 진정한 reasoning인지
+     템플릿 암기(memorization)인지 구별이 필요함.
+   - Phrase-level vagueness score를 별도 평가 지표로 도입할 필요가 있음.
+============================================================
