@@ -1,0 +1,24 @@
+# exp_unified_sample.py 실행용 의존성 (PyPI 호환, file:// 제거)
+# 사용: pip install -r requirements_exp_unified.txt
+
+# Core (버전 충돌 방지: 널리 호환되는 범위)
+torch>=2.0.0,<2.6.0
+torchvision>=0.15.0
+numpy>=1.24.0,<3.0.0
+Pillow>=9.0.0
+matplotlib>=3.6.0
+tqdm>=4.65.0
+
+# Transformers (LlavaForConditionalGeneration, LlavaProcessor)
+transformers>=4.40.0,<4.46.0
+safetensors>=0.4.0
+huggingface-hub>=0.20.0
+tokenizers>=0.19.0
+sentencepiece>=0.1.99
+
+# 통합 실험 추가 의존성 (README)
+sentence-transformers>=2.2.0
+rouge-score>=0.1.2
+
+# accelerate (모델 로딩)
+accelerate>=0.25.0
