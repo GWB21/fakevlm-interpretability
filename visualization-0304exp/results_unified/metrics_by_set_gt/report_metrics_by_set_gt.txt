@@ -1,0 +1,129 @@
+================================================================================
+21 Set × 4 Condition  ACC / CSS(vs GT) / ROUGE_L(vs GT)
+================================================================================
+
+[deepfake_fake] type=cate_label n=932
+  Original      ACC=0.9936  CSS=0.8235  ROUGE_L=0.3080
+  LPF           ACC=0.9968  CSS=0.8129  ROUGE_L=0.2954
+  HPF+DC        ACC=1.0000  CSS=0.7470  ROUGE_L=0.2485
+  Masked        ACC=0.9785  CSS=0.8340  ROUGE_L=0.3138
+
+[deepfake_real] type=cate_label n=236
+  Original      ACC=0.8008  CSS=0.8796  ROUGE_L=0.5507
+  LPF           ACC=0.0254  CSS=0.6931  ROUGE_L=0.1887
+  HPF+DC        ACC=0.0000  CSS=0.6208  ROUGE_L=0.1962
+  Masked        ACC=0.2839  CSS=0.7735  ROUGE_L=0.3173
+
+[human_fake] type=cate_label n=282
+  Original      ACC=1.0000  CSS=0.6647  ROUGE_L=0.2540
+  LPF           ACC=0.9645  CSS=0.6286  ROUGE_L=0.2313
+  HPF+DC        ACC=1.0000  CSS=0.6165  ROUGE_L=0.2223
+  Masked        ACC=0.9894  CSS=0.6701  ROUGE_L=0.2646
+
+[human_real] type=cate_label n=121
+  Original      ACC=0.9917  CSS=0.8810  ROUGE_L=0.7439
+  LPF           ACC=0.1570  CSS=0.6545  ROUGE_L=0.3190
+  HPF+DC        ACC=0.1983  CSS=0.6689  ROUGE_L=0.3407
+  Masked        ACC=0.9917  CSS=0.8787  ROUGE_L=0.7399
+
+[animal_fake] type=cate_label n=370
+  Original      ACC=0.9811  CSS=0.8673  ROUGE_L=0.3834
+  LPF           ACC=0.9838  CSS=0.8465  ROUGE_L=0.3760
+  HPF+DC        ACC=1.0000  CSS=0.7158  ROUGE_L=0.3219
+  Masked        ACC=0.9459  CSS=0.8521  ROUGE_L=0.3721
+
+[animal_real] type=cate_label n=379
+  Original      ACC=1.0000  CSS=0.9276  ROUGE_L=0.7317
+  LPF           ACC=0.0554  CSS=0.7351  ROUGE_L=0.3156
+  HPF+DC        ACC=0.2348  CSS=0.7244  ROUGE_L=0.3533
+  Masked        ACC=1.0000  CSS=0.9078  ROUGE_L=0.7166
+
+[object_fake] type=cate_label n=479
+  Original      ACC=0.9875  CSS=0.7839  ROUGE_L=0.3344
+  LPF           ACC=0.9520  CSS=0.7465  ROUGE_L=0.3138
+  HPF+DC        ACC=0.9958  CSS=0.7018  ROUGE_L=0.3101
+  Masked        ACC=0.9687  CSS=0.7617  ROUGE_L=0.3219
+
+[object_real] type=cate_label n=388
+  Original      ACC=0.9974  CSS=0.8281  ROUGE_L=0.4551
+  LPF           ACC=0.1263  CSS=0.6591  ROUGE_L=0.2917
+  HPF+DC        ACC=0.3814  CSS=0.6714  ROUGE_L=0.3321
+  Masked        ACC=0.9871  CSS=0.8042  ROUGE_L=0.4504
+
+[scene_fake] type=cate_label n=226
+  Original      ACC=0.9823  CSS=0.7259  ROUGE_L=0.2874
+  LPF           ACC=0.9558  CSS=0.6913  ROUGE_L=0.2681
+  HPF+DC        ACC=1.0000  CSS=0.6718  ROUGE_L=0.2540
+  Masked        ACC=0.9646  CSS=0.7056  ROUGE_L=0.2760
+
+[scene_real] type=cate_label n=136
+  Original      ACC=1.0000  CSS=0.8098  ROUGE_L=0.4572
+  LPF           ACC=0.1912  CSS=0.6386  ROUGE_L=0.2630
+  HPF+DC        ACC=0.3676  CSS=0.6725  ROUGE_L=0.3199
+  Masked        ACC=1.0000  CSS=0.7923  ROUGE_L=0.4683
+
+[satellite_fake] type=cate_label n=443
+  Original      ACC=1.0000  CSS=0.8908  ROUGE_L=0.4615
+  LPF           ACC=1.0000  CSS=0.8790  ROUGE_L=0.4586
+  HPF+DC        ACC=0.9977  CSS=0.8684  ROUGE_L=0.4484
+  Masked        ACC=1.0000  CSS=0.8905  ROUGE_L=0.4609
+
+[satellite_real] type=cate_label n=432
+  Original      ACC=1.0000  CSS=0.9500  ROUGE_L=0.7223
+  LPF           ACC=0.0000  CSS=0.8306  ROUGE_L=0.3087
+  HPF+DC        ACC=0.0880  CSS=0.8350  ROUGE_L=0.3274
+  Masked        ACC=0.9792  CSS=0.9475  ROUGE_L=0.7156
+
+[doc_fake] type=cate_label n=460
+  Original      ACC=1.0000  CSS=0.9775  ROUGE_L=0.8873
+  LPF           ACC=0.2587  CSS=0.7807  ROUGE_L=0.4490
+  HPF+DC        ACC=0.9957  CSS=0.9767  ROUGE_L=0.8863
+  Masked        ACC=0.9935  CSS=0.9764  ROUGE_L=0.8846
+
+[doc_real] type=cate_label n=116
+  Original      ACC=0.9914  CSS=0.9360  ROUGE_L=0.6811
+  LPF           ACC=0.8793  CSS=0.8044  ROUGE_L=0.4587
+  HPF+DC        ACC=0.9655  CSS=0.9295  ROUGE_L=0.6786
+  Masked        ACC=0.9914  CSS=0.9339  ROUGE_L=0.6815
+
+[deepfake_all] type=cate n=1168
+  Original      ACC=0.9546  CSS=0.8348  ROUGE_L=0.3571
+  LPF           ACC=0.8005  CSS=0.7887  ROUGE_L=0.2739
+  HPF+DC        ACC=0.7979  CSS=0.7215  ROUGE_L=0.2380
+  Masked        ACC=0.8382  CSS=0.8218  ROUGE_L=0.3145
+
+[human_all] type=cate n=403
+  Original      ACC=0.9975  CSS=0.7297  ROUGE_L=0.4011
+  LPF           ACC=0.7221  CSS=0.6364  ROUGE_L=0.2576
+  HPF+DC        ACC=0.7593  CSS=0.6322  ROUGE_L=0.2578
+  Masked        ACC=0.9901  CSS=0.7327  ROUGE_L=0.4073
+
+[animal_all] type=cate n=749
+  Original      ACC=0.9907  CSS=0.8978  ROUGE_L=0.5596
+  LPF           ACC=0.5140  CSS=0.7902  ROUGE_L=0.3454
+  HPF+DC        ACC=0.6128  CSS=0.7202  ROUGE_L=0.3378
+  Masked        ACC=0.9733  CSS=0.8803  ROUGE_L=0.5464
+
+[object_all] type=cate n=867
+  Original      ACC=0.9919  CSS=0.8037  ROUGE_L=0.3884
+  LPF           ACC=0.5825  CSS=0.7074  ROUGE_L=0.3039
+  HPF+DC        ACC=0.7209  CSS=0.6882  ROUGE_L=0.3199
+  Masked        ACC=0.9769  CSS=0.7807  ROUGE_L=0.3794
+
+[scene_all] type=cate n=362
+  Original      ACC=0.9890  CSS=0.7574  ROUGE_L=0.3512
+  LPF           ACC=0.6685  CSS=0.6715  ROUGE_L=0.2662
+  HPF+DC        ACC=0.7624  CSS=0.6720  ROUGE_L=0.2787
+  Masked        ACC=0.9779  CSS=0.7382  ROUGE_L=0.3483
+
+[satellite_all] type=cate n=875
+  Original      ACC=1.0000  CSS=0.9201  ROUGE_L=0.5902
+  LPF           ACC=0.5063  CSS=0.8551  ROUGE_L=0.3846
+  HPF+DC        ACC=0.5486  CSS=0.8519  ROUGE_L=0.3886
+  Masked        ACC=0.9897  CSS=0.9186  ROUGE_L=0.5866
+
+[doc_all] type=cate n=576
+  Original      ACC=0.9983  CSS=0.9691  ROUGE_L=0.8458
+  LPF           ACC=0.3837  CSS=0.7854  ROUGE_L=0.4509
+  HPF+DC        ACC=0.9896  CSS=0.9672  ROUGE_L=0.8445
+  Masked        ACC=0.9931  CSS=0.9678  ROUGE_L=0.8437
